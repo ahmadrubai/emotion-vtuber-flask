@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="debug-page">
+    <div class="debug-layout">
+        <section class="debug-video">
+            <h2>Webcam Debug</h2>
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </section>
+
+        <section class="debug-panel">
+            <h2>Emotion State</h2>
+
+            <table>
+                <tr>
+                    <td>Final Emotion</td>
+                    <td id="emotion">-</td>
+                </tr>
+                <tr>
+                    <td>Raw Emotion</td>
+                    <td id="raw-emotion">-</td>
+                </tr>
+                <tr>
+                    <td>Top N (realtime)</td>
+                    <td id="top-n">-</td>
+                </tr>
+                <tr>
+                    <td>Confidence</td>
+                    <td id="confidence">-</td>
+                </tr>
+                <tr>
+                    <td>Crop Used</td>
+                    <td id="crop-used">-</td>
+                </tr>
+                <tr>
+                    <td>FPS</td>
+                    <td id="fps">-</td>
+                </tr>
+                <tr>
+                    <td>Camera Running</td>
+                    <td id="camera-running">-</td>
+                </tr>
+                <tr>
+                    <td>Stream Ready</td>
+                    <td id="stream-ready">-</td>
+                </tr>
+                <tr>
+                    <td>Camera Error</td>
+                    <td id="camera-error">-</td>
+                </tr>
+                <tr>
+                    <td>Model Loaded</td>
+                    <td id="model-loaded">-</td>
+                </tr>
+            </table>
+
+            <p class="hint">
+                OBS pakai halaman:
+                <code>http://127.0.0.1:5000/avatar</code>
+            </p>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/debug.js') }}"></script>
+</body>
+</html>

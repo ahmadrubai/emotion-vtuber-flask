@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Avatar Source</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="avatar-page">
+    <div id="avatar-container">
+        <img id="avatar-image"
+             src="{{ url_for('static', filename='assets/neutral.png') }}"
+             alt="Avatar">
+    </div>
+
+    <script>
+        window.__MERGED_EMOTION__ = "{{ merged_emotion }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/avatar.js') }}"></script>
+</body>
+</html>

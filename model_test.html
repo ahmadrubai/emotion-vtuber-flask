@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="model-test-page">
+    <main class="model-test-layout">
+        <section class="model-test-panel">
+            <h1>Model Test (Upload Gambar)</h1>
+            <p class="hint">
+                Upload gambar utuh untuk cek persentase semua emosi seperti input dataset.
+            </p>
+
+            <div class="model-test-controls">
+                <input id="image-input" type="file" accept="image/*">
+                <button id="predict-btn" type="button">Predict</button>
+            </div>
+
+            <p id="status-text" class="hint">Belum ada prediksi.</p>
+
+            <div class="model-test-preview">
+                <img id="preview-image" alt="Preview upload">
+            </div>
+        </section>
+
+        <section class="model-test-panel">
+            <h2>Hasil</h2>
+            <div class="result-top">
+                <div>Top Emotion: <strong id="top-emotion">-</strong></div>
+                <div>Confidence: <strong id="top-confidence">-</strong></div>
+                <div>Crop Used: <strong id="crop-used">-</strong></div>
+            </div>
+
+            <table id="probability-table">
+                <thead>
+                    <tr>
+                        <th>Emotion</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section class="model-test-panel model-upload-panel">
+            <h2>Upload Model Keras</h2>
+            <p class="hint">
+                Upload file .h5/.keras. Kalau label berubah, upload labels.txt juga.
+            </p>
+
+            <div class="model-upload-controls">
+                <label>
+                    Model
+                    <input id="model-input" type="file" accept=".h5,.keras">
+                </label>
+                <label>
+                    Labels
+                    <input id="labels-input" type="file" accept=".txt">
+                </label>
+                <button id="upload-model-btn" type="button">Upload & Activate</button>
+            </div>
+
+            <p id="model-upload-status" class="hint">Model belum dicek.</p>
+
+            <div class="model-status-grid">
+                <div>Loaded: <strong id="model-loaded">-</strong></div>
+                <div>Outputs: <strong id="model-output-count">-</strong></div>
+                <div>Labels: <strong id="model-label-count">-</strong></div>
+                <div>Path: <strong id="model-path">-</strong></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/model_test.js') }}"></script>
+</body>
+</html>

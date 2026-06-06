@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    min-height: 100vh;
+    background: #111827;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    width: min(800px, 90vw);
+    background: #1f2937;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.menu h1 {
+    margin-top: 0;
+}
+
+.menu-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+}
+
+.menu-links a {
+    color: white;
+    background: #2563eb;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.menu-links a:hover {
+    background: #1d4ed8;
+}
+
+.hint {
+    opacity: 0.85;
+}
+
+code {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.avatar-page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+#avatar-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#avatar-image {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    transition: opacity 0.12s ease, filter 0.25s ease;
+}
+
+#avatar-image.idle-dim {
+    filter: brightness(0.72);
+}
+
+#avatar-image.meme-bounce {
+    animation: meme-bounce-y 720ms ease-in-out infinite;
+    transform-origin: 50% 80%;
+    will-change: transform;
+}
+
+@keyframes meme-bounce-y {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.debug-page {
+    min-height: 100vh;
+    background: #0f172a;
+    color: white;
+}
+
+.debug-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    padding: 24px;
+}
+
+.debug-video,
+.debug-panel {
+    background: #1e293b;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.debug-video img {
+    width: 100%;
+    border-radius: 14px;
+    background: black;
+}
+
+.debug-panel table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.debug-panel td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.debug-panel td:first-child {
+    opacity: 0.75;
+}
+
+.debug-panel td:last-child {
+    font-weight: bold;
+    text-align: right;
+}
+
+.model-test-page {
+    min-height: 100vh;
+    margin: 0;
+    background: #0b1220;
+    color: white;
+}
+
+.model-test-layout {
+    width: min(1100px, 95vw);
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.model-test-panel {
+    background: #1e293b;
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.model-upload-panel {
+    grid-column: 1 / -1;
+}
+
+.model-test-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.model-upload-controls {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) auto;
+    gap: 12px;
+    align-items: end;
+    margin: 12px 0;
+}
+
+.model-upload-controls label {
+    display: grid;
+    gap: 6px;
+    font-weight: bold;
+}
+
+.model-test-controls button,
+.model-upload-controls button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.model-test-controls button:disabled,
+.model-upload-controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.model-status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.model-status-grid div {
+    min-width: 0;
+}
+
+.model-status-grid strong {
+    overflow-wrap: anywhere;
+}
+
+.model-test-preview {
+    margin-top: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #020617;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#preview-image {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.result-top {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+#probability-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#probability-table th,
+#probability-table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#probability-table th {
+    text-align: left;
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .model-test-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .model-upload-controls,
+    .model-status-grid {
+        grid-template-columns: 1fr;
+    }
+}
